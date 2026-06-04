@@ -10,7 +10,6 @@ limit = int(math.sqrt(N))
 import time
 
 start_time = time.perf_counter() 
-# ... (proses nested loop) ...
 end_time = time.perf_counter()    
 
 duration = (end_time - start_time) * 1_000_000
@@ -18,11 +17,10 @@ duration = (end_time - start_time) * 1_000_000
 i = 2
 while i <= limit:
     if prima[i] == True:
-        # Loop dalam dimulai dari i * i
         j = i * i
         while j <= N:
             prima[j] = False
-            j = j + i  # Lompat sejauh kelipatannya (Logika Benar)
+            j = j + i  
     i = i + 1
 
 count = prima[2:].count(True)
