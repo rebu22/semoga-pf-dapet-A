@@ -25,6 +25,7 @@ while i <= limit:
 
 count = prima[2:].count(True)
 
+print("Bilangan prima hingga", N, ":")
 print(f"Batas N: {N}")
 print(f"Jumlah bilangan prima: {count}")
-print(f"Waktu eksekusi: {duration:.2f} mikrodetik")
+print(f"Waktu eksekusi: {duration:.2f} ms")
