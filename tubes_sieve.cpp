@@ -6,9 +6,7 @@
 #include <string>
 #include <iomanip>
 
-// ============================================================
 //  Konstanta
-// ============================================================
 static const long long DEFAULT_N = 2'000'000;
 static const long long MAX_N     = 20'000'000;
 
@@ -32,9 +30,7 @@ std::vector<bool> sieve(long long n) {
     return is_prime;
 }
 
-// ============================================================
 //  Hitung jumlah prima dari vector hasil sieve
-// ============================================================
 long long countPrimes(const std::vector<bool>& is_prime, long long n) {
     long long count = 0;
     for (long long i = 2; i <= n; ++i) {
@@ -43,9 +39,7 @@ long long countPrimes(const std::vector<bool>& is_prime, long long n) {
     return count;
 }
 
-// ============================================================
 //  Tampilkan banner
-// ============================================================
 void printBanner() {
     std::cout << "============================================";
     std::cout << "   Sieve of Eratosthenes  C++ Version   ";
@@ -54,9 +48,7 @@ void printBanner() {
     std::cout << "============================================";
 }
 
-// ============================================================
 //  Main
-// ============================================================
 int main(int argc, char* argv[]) {
     printBanner();
 
@@ -85,9 +77,7 @@ int main(int argc, char* argv[]) {
               << static_cast<double>(N + 1) / 8.0 / 1024.0 / 1024.0
               << " MB — bitset internal)\n\n";
 
-    // ----------------------------------------------------------
     //  Mulai pengukuran waktu
-    // ----------------------------------------------------------
     auto start = std::chrono::high_resolution_clock::now();
 
     // Jalankan sieve (alokasi + komputasi)
@@ -98,17 +88,13 @@ int main(int argc, char* argv[]) {
 
     auto end = std::chrono::high_resolution_clock::now();
 
-    // ----------------------------------------------------------
     //  Hitung durasi dalam berbagai satuan
-    // ----------------------------------------------------------
     auto duration_ns  = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
     double duration_us = duration_ns / 1'000.0;
     double duration_ms = duration_ns / 1'000'000.0;
     double duration_s  = duration_ns / 1'000'000'000.0;
 
-    // ----------------------------------------------------------
-    //  Output hasil
-    // ----------------------------------------------------------
+    //  Output 
     std::cout << "============================================";
     std::cout << "  HASIL\n";
     std::cout << "============================================";
