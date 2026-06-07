@@ -16,10 +16,8 @@ std::vector<bool> sieve(long long n) {
     is_prime[0] = false;
     is_prime[1] = false;
 
-    long long limit = static_cast<long long>(std::sqrt(static_cast<double>(n)));
-
     // Nested loop
-    for (long long i = 2; i <= limit; ++i) {
+    for (long long i = 2; i*i <= n; ++i) {
         if (is_prime[i]) {
             for (long long j = i * i; j <= n; j += i) {
                 is_prime[j] = false;   // eliminasi satu per satu
@@ -39,13 +37,12 @@ long long countPrimes(const std::vector<bool>& is_prime, long long n) {
     return count;
 }
 
-//  Tampilkan banner
 void printBanner() {
-    std::cout << "============================================";
-    std::cout << "   Sieve of Eratosthenes  C++ Version   ";
-    std::cout << "   Minggu 2: Implementasi C++ & Manajemen  ";
-    std::cout << "   Memori | Opsi 3                         ";
-    std::cout << "============================================";
+    std::cout << "============================================\n";
+    std::cout << "   Sieve of Eratosthenes  C++ Version   \n";
+    std::cout << "   Minggu 2: Implementasi C++ & Manajemen  \n";
+    std::cout << "   Memori | Opsi 3                         \n";
+    std::cout << "============================================\n";
 }
 
 //  Main
@@ -83,10 +80,11 @@ int main(int argc, char* argv[]) {
     // Jalankan sieve (alokasi + komputasi)
     std::vector<bool> is_prime = sieve(N);
 
+    auto end = std::chrono::high_resolution_clock::now();
+    
     // Hitung jumlah prima
     long long jumlah_prima = countPrimes(is_prime, N);
 
-    auto end = std::chrono::high_resolution_clock::now();
 
     //  Hitung durasi dalam berbagai satuan
     auto duration_ns  = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
@@ -95,19 +93,19 @@ int main(int argc, char* argv[]) {
     double duration_s  = duration_ns / 1'000'000'000.0;
 
     //  Output 
-    std::cout << "============================================";
+    std::cout << "============================================\n";
     std::cout << "  HASIL\n";
-    std::cout << "============================================";
-    std::cout << "Batas N              : " << N << "";
-    std::cout << "Jumlah bilangan prima: " << jumlah_prima << "";
+    std::cout << "============================================\n";
+    std::cout << "Batas N              : " << N << "\n";
+    std::cout << "Jumlah bilangan prima: " << jumlah_prima << "\n";
     std::cout << "";
     std::cout << "Waktu eksekusi:";
     std::cout << "  " << std::fixed << std::setprecision(2)
-              << duration_us << " mikrodetik";
+              << duration_us << " mikrodetik\n";
     std::cout << "  " << std::fixed << std::setprecision(4)
-              << duration_ms << " milidetik";
+              << duration_ms << " milidetik\n";
     std::cout << "  " << std::fixed << std::setprecision(6)
-              << duration_s  << " detik";
+              << duration_s  << " detik\n";
     std::cout << "============================================";
 
     // is_prime otomatis didealokasi di sini saat keluar scope
