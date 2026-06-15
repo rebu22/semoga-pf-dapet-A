@@ -34,7 +34,6 @@ long long countPrimes(const std::vector<bool>& is_prime, long long n) {
     for (long long i = 2; i <= n; ++i) {
         if (is_prime[i]) ++count;
     }
-    return count;
 }
 
 void printBanner() {
