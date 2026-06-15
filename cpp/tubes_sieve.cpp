@@ -7,7 +7,7 @@
 #include <iomanip>
 
 //  Konstanta
-static const long long DEFAULT_N = 2'000'000;
+static const long long DEFAULT_N = 20'000'000;
 static const long long MAX_N     = 20'000'000;
 
 std::vector<bool> sieve(long long n) {
@@ -35,11 +35,9 @@ long long countPrimes(const std::vector<bool>& is_prime, long long n) {
         if (is_prime[i]) ++count;
     }
 }
-
 void printBanner() {
     std::cout << "============================================\n";
-    std::cout << "   Sieve of Eratosthenes  C++ Version   \n";
-    std::cout << "   Minggu 2: Implementasi C++ & Manajemen  \n";
+    std::cout << "   Sieve of Eratosthenes C++   \n";
     std::cout << "   Memori | Opsi 3                         \n";
     std::cout << "============================================\n";
 }
